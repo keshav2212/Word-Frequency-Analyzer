@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello</title>
+</head>
+<body>
+<form method="POST" style="color: blue;margin-left: 41%;margin-top: 16%;">{% csrf_token %}
+{{ form.as_p }}
+<button type="submit" style="align-self: center;margin-top: 1%">Calculate Word Frequency</button>
+</form>
+</body>
+</html>
