@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from django.http import HttpResponse
 from .forms import urlform
 from .models import givenurl,resulttable
+from django.contrib import admin
 def resultcalc(url):
 	res=requests.get(url)
 	html_page=res.content
@@ -43,6 +44,10 @@ def resultcalc(url):
 		a=resulttable(URL=instanace,Keyword=df[i][0],wordfrequency=df[i][1])
 		a.save()
 def home(request):
+	for model,model_admin in admin.site._registry.items():
+		print(model)
+		print("keshu")
+		print(model_admin)
 	if request.method=="POST":
 		form=urlform(request.POST)
 		if form.is_valid():
